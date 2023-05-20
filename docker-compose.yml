@@ -1,0 +1,64 @@
+version: '3'
+
+services:
+  liberfly-redis:
+    image: redis:alpine
+    restart: unless-stopped
+    ports:
+      - '${REDIS_PORT}:${REDIS_PORT}'
+    networks:
+      - liberfly-network
+
+  liberfly-database:
+    image: mysql:latest
+    ports:
+        - '${DB_PORT}:${DB_PORT}'
+    environment:
+        MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+        MYSQL_ROOT_HOST: "%"
+        MYSQL_DATABASE: '${DB_DATABASE}'
+        MYSQL_USER: '${DB_USERNAME}'
+        MYSQL_PASSWORD: '${DB_PASSWORD}'
+        MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    volumes:
+        - liberfly-data:/var/lib/mysql
+        - ./.docker/mysql/create-testing-database.sh:/docker-entrypoint-initdb.d/10-create-testing-database.sh
+    networks:
+        - liberfly-network
+    healthcheck:
+        test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
+        retries: 3
+        timeout: 5s
+
+  liberfly-api:
+    build:
+      context: .
+      dockerfile: ./.docker/php/Dockerfile
+    env_file:
+      - .env
+    volumes:
+      - .:/var/www
+    networks:
+      - liberfly-network
+    depends_on:
+      - liberfly-database
+      - liberfly-redis
+
+  liberfly-server:
+    image: nginx:alpine
+    volumes:
+      - .:/var/www
+      - ./.docker/nginx/:/etc/nginx/conf.d/
+    ports:
+      - 80:80
+    networks:
+      - liberfly-network
+    depends_on:
+      - liberfly-api
+
+networks:
+  liberfly-network:
+    driver: bridge
+
+volumes:
+  liberfly-data:
