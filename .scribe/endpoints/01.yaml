@@ -1,0 +1,376 @@
+name: 'Task management'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/tasks
+    metadata:
+      groupName: 'Task management'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: Tasks
+      description: 'This endpoint return the user tasks.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |
+          [
+              {
+                  "id": 1,
+                  "description": "Fugit assumenda soluta voluptates repellat itaque.",
+                  "completed": true,
+                  "user_id": 1
+              },
+              {
+                  "id": 2,
+                  "description": "Amet voluptatum et distinctio praesentium ea qui voluptas.",
+                  "completed": true,
+                  "user_id": 1
+              },
+              {
+                  "id": 3,
+                  "description": "Aut qui doloribus velit accusantium fugit qui aliquid.",
+                  "completed": true,
+                  "user_id": 1
+              },
+              {
+                  "id": 4,
+                  "description": "Sunt et omnis est magni eos omnis quia.",
+                  "completed": true,
+                  "user_id": 1
+              },
+              {
+                  "id": 5,
+                  "description": "Qui laudantium quia sed dolorem dolor itaque libero.",
+                  "completed": false,
+                  "user_id": 1
+              },
+              {
+                  "id": 6,
+                  "description": "Voluptatem temporibus a delectus vel.",
+                  "completed": true,
+                  "user_id": 1
+              },
+              {
+                  "id": 7,
+                  "description": "Sit eius quaerat dolores eos necessitatibus error.",
+                  "completed": false,
+                  "user_id": 1
+              },
+              {
+                  "id": 8,
+                  "description": "Quo porro dolor ad aut.",
+                  "completed": false,
+                  "user_id": 1
+              },
+              {
+                  "id": 9,
+                  "description": "Voluptate ea minima at id expedita aliquid commodi.",
+                  "completed": true,
+                  "user_id": 1
+              },
+              {
+                  "id": 10,
+                  "description": "Sunt nulla tenetur placeat eos ratione eaque similique.",
+                  "completed": true,
+                  "user_id": 1
+              }
+          ]
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1aaZ3ke6fPDVg6dv8bcEh54'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/tasks
+    metadata:
+      groupName: 'Task management'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'New Task'
+      description: 'This endpoint create a new task.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      description:
+        name: description
+        description: 'A descrição da tarefa.'
+        required: true
+        example: 'Reprehenderit magni eveniet nesciunt nulla iusto aut.'
+        type: string
+        custom: []
+    cleanBodyParameters:
+      description: 'Reprehenderit magni eveniet nesciunt nulla iusto aut.'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |
+          {
+              "id": 10,
+              "description": "Sunt nulla tenetur placeat eos ratione eaque similique.",
+              "completed": true,
+              "user_id": 1
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: |
+          {
+              "errors": {
+                  "description": [
+                      "The description field is required.",
+                      "The description field must be a string."
+                  ]
+              }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 4Z6E5Dckevga6a1V8hPdb3f'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/tasks/{id}'
+    metadata:
+      groupName: 'Task management'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Find Task'
+      description: 'This endpoint return a task.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the task.'
+        required: true
+        example: suscipit
+        type: string
+        custom: []
+    cleanUrlParameters:
+      id: suscipit
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |
+          {
+              "id": 10,
+              "description": "Sunt nulla tenetur placeat eos ratione eaque similique.",
+              "completed": true,
+              "user_id": 1
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"message": "You are not authorized to access this resource."}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer PfhVa6541av6cZb8dg3kDeE'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/tasks/{id}'
+    metadata:
+      groupName: 'Task management'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update a Task'
+      description: 'This endpoint update a task.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the task.'
+        required: true
+        example: eius
+        type: string
+        custom: []
+    cleanUrlParameters:
+      id: eius
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      description:
+        name: description
+        description: 'A descrição da tarefa.'
+        required: false
+        example: 'Vero voluptate ad distinctio qui vel.'
+        type: string
+        custom: []
+      completed:
+        name: completed
+        description: 'O status da tarefa.'
+        required: false
+        example: false
+        type: boolean
+        custom: []
+    cleanBodyParameters:
+      description: 'Vero voluptate ad distinctio qui vel.'
+      completed: false
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"message": "Task updated."}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"message": "You are not authorized to access this resource."}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: |
+          {
+              "errors": {
+                  "description": [
+                      "The description field must have a value.",
+                      "The description field must be a string."
+                  ],
+                  "completed": [
+                      "The completed field must have a value.",
+                      "The completed field must be true or false."
+                  ]
+              }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer Evkf4Ve15ahd6b3ZP8ga6cD'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/tasks/{id}'
+    metadata:
+      groupName: 'Task management'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete a Task'
+      description: 'This endpoint delete a task.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the task.'
+        required: true
+        example: atque
+        type: string
+        custom: []
+    cleanUrlParameters:
+      id: atque
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 204
+        content: '{"message": "Task deleted."}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"message": "You are not authorized to access this resource."}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer P16gf6e45chZDa8EvVbd3ka'
+    controller: null
+    method: null
+    route: null
+    custom: []
