@@ -37,8 +37,6 @@ COPY --chown=www:www . /var/www
 
 WORKDIR /var/www
 
-RUN composer install --no-interaction --no-dev --prefer-dist --optimize-autoloader --no-progress --no-suggest
-
 EXPOSE 9000
 
 CMD ["php-fpm"]
