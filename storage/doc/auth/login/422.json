@@ -1,0 +1,13 @@
+{
+    "errors": {
+        "email": [
+            "The email field is required.",
+            "The email field must be a string.",
+            "The email field must be a valid email address."
+        ],
+        "password": [
+            "The password field is required.",
+            "The password field must be a string."
+        ]
+    }
+}

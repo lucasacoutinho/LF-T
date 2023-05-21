@@ -8,14 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class BaseRepository implements EloquentRepositoryInterface
 {
-    /**
-     * BaseRepository constructor.
-     *
-     * @param Model $model
-     */
-    public function __construct(
-        protected Model $model
-    ) {
+    protected $model;
+
+    public function __construct(Model $model)
+    {
+        $this->model = $model;
     }
 
     /**

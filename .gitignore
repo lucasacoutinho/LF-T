@@ -17,4 +17,5 @@ yarn-error.log
 /.idea
 /.vscode
 /.devcontainer
+/.scribe
 _ide_helper.php
