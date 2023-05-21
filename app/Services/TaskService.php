@@ -32,7 +32,7 @@ class TaskService
     {
         $data = array_merge($data, ['user_id' => $this->authService->authenticatedId()]);
         $task = $this->taskRepository->create($data);
-        return Cache::rememberForever(self::CACHE_KEY . $task->getKey(), fn () => $task);
+        return Cache::remember(self::CACHE_KEY . $task->getKey(), now()->addHour() ,fn () => $task);
     }
 
     public function update(int $id, array $data): bool
