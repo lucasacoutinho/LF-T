@@ -932,7 +932,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"description\": \"Qui enim odit nihil.\"
+    \"description\": \"Reprehenderit magni eveniet nesciunt nulla iusto aut.\"
 }"
 </code></pre></div>
 
@@ -949,7 +949,7 @@ const headers = {
 };
 
 let body = {
-    "description": "Qui enim odit nihil."
+    "description": "Reprehenderit magni eveniet nesciunt nulla iusto aut."
 };
 
 fetch(url, {
@@ -1075,10 +1075,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="description"                data-endpoint="POSTapi-tasks"
-               value="Qui enim odit nihil."
+               value="Reprehenderit magni eveniet nesciunt nulla iusto aut."
                data-component="body">
     <br>
-<p>A descrição da tarefa. Example: <code>Qui enim odit nihil.</code></p>
+<p>A descrição da tarefa. Example: <code>Reprehenderit magni eveniet nesciunt nulla iusto aut.</code></p>
         </div>
         </form>
 
@@ -1096,7 +1096,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/tasks/quia" \
+    --get "http://localhost/api/tasks/suscipit" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1104,7 +1104,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/tasks/quia"
+    "http://localhost/api/tasks/suscipit"
 );
 
 const headers = {
@@ -1230,10 +1230,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="id"                data-endpoint="GETapi-tasks--id-"
-               value="quia"
+               value="suscipit"
                data-component="url">
     <br>
-<p>The ID of the task. Example: <code>quia</code></p>
+<p>The ID of the task. Example: <code>suscipit</code></p>
             </div>
                     </form>
 
@@ -1251,12 +1251,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/tasks/sint" \
+    "http://localhost/api/tasks/eius" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"description\": \"Debitis voluptatem minima debitis quos.\",
+    \"description\": \"Vero voluptate ad distinctio qui vel.\",
     \"completed\": false
 }"
 </code></pre></div>
@@ -1264,7 +1264,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/tasks/sint"
+    "http://localhost/api/tasks/eius"
 );
 
 const headers = {
@@ -1274,7 +1274,7 @@ const headers = {
 };
 
 let body = {
-    "description": "Debitis voluptatem minima debitis quos.",
+    "description": "Vero voluptate ad distinctio qui vel.",
     "completed": false
 };
 
@@ -1415,10 +1415,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="id"                data-endpoint="PUTapi-tasks--id-"
-               value="sint"
+               value="eius"
                data-component="url">
     <br>
-<p>The ID of the task. Example: <code>sint</code></p>
+<p>The ID of the task. Example: <code>eius</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -1427,10 +1427,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="description"                data-endpoint="PUTapi-tasks--id-"
-               value="Debitis voluptatem minima debitis quos."
+               value="Vero voluptate ad distinctio qui vel."
                data-component="body">
     <br>
-<p>A descrição da tarefa. Example: <code>Debitis voluptatem minima debitis quos.</code></p>
+<p>A descrição da tarefa. Example: <code>Vero voluptate ad distinctio qui vel.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>completed</code></b>&nbsp;&nbsp;
@@ -1469,7 +1469,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/tasks/consequuntur" \
+    "http://localhost/api/tasks/atque" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1477,7 +1477,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/tasks/consequuntur"
+    "http://localhost/api/tasks/atque"
 );
 
 const headers = {
@@ -1597,10 +1597,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="id"                data-endpoint="DELETEapi-tasks--id-"
-               value="consequuntur"
+               value="atque"
                data-component="url">
     <br>
-<p>The ID of the task. Example: <code>consequuntur</code></p>
+<p>The ID of the task. Example: <code>atque</code></p>
             </div>
                     </form>
 

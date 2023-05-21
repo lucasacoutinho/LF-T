@@ -28,11 +28,18 @@ RUN pecl install -o -f redis \
     && rm -rf /tmp/pear \
     && docker-php-ext-enable redis
 
+RUN addgroup -g 1000 -S www && \
+    adduser -u 1000 -S www -G www
+
+USER www
+
+COPY --chown=www:www . /var/www
+
 WORKDIR /var/www
 
-RUN chown www-data:root /var/www
+RUN composer install --no-interaction --no-dev --prefer-dist --optimize-autoloader --no-progress --no-suggest
 
-USER root
+RUN php artisan scribe:generate
 
 EXPOSE 9000
 

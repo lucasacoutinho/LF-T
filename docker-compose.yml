@@ -2,6 +2,7 @@ version: '3'
 
 services:
   liberfly-redis:
+    container_name: liberfly-redis
     image: redis:alpine
     restart: unless-stopped
     ports:
@@ -10,6 +11,7 @@ services:
       - liberfly-network
 
   liberfly-database:
+    container_name: liberfly-database
     image: mysql:latest
     ports:
         - '${DB_PORT}:${DB_PORT}'
@@ -31,6 +33,7 @@ services:
         timeout: 5s
 
   liberfly-api:
+    container_name: liberfly-api
     build:
       context: .
       dockerfile: ./.docker/php/Dockerfile
@@ -45,6 +48,7 @@ services:
       - liberfly-redis
 
   liberfly-server:
+    container_name: liberfly-server
     image: nginx:alpine
     volumes:
       - .:/var/www
