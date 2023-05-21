@@ -1,0 +1,12 @@
+{
+    "errors": {
+        "description": [
+            "The description field must have a value.",
+            "The description field must be a string."
+        ],
+        "completed": [
+            "The completed field must have a value.",
+            "The completed field must be true or false."
+        ]
+    }
+}

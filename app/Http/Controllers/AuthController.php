@@ -27,9 +27,9 @@ class AuthController extends Controller
      *
      * This endpoint lets you authenticate.
      * @unauthenticated
-     * @responseFile doc/auth/login/200.json
-     * @responseFile 401 doc/auth/login/401.json
-     * @responseFile 422 doc/auth/login/422.json
+     * @responseFile doc/auth/login.json
+     * @responseFile 401 doc/auth/loginAuthorization.json
+     * @responseFile 422 doc/auth/loginValidation.json
      */
     public function login(LoginRequest $request): TokenResource|JsonResponse
     {
@@ -46,7 +46,7 @@ class AuthController extends Controller
      * Logout
      *
      * This endpoint lets you logout.
-     * @responseFile doc/auth/logout/200.json
+     * @responseFile doc/auth/logout.json
      */
     public function logout(): JsonResponse
     {
@@ -59,7 +59,7 @@ class AuthController extends Controller
      * Refresh token
      *
      * Return a refresh token.
-     * @responseFile doc/auth/login/200.json
+     * @responseFile doc/auth/login.json
      */
     public function refresh(): TokenResource
     {
@@ -70,7 +70,7 @@ class AuthController extends Controller
      * Authenticated
      *
      * Return a authenticated user.
-     * @responseFile doc/auth/authenticated/200.json
+     * @responseFile doc/auth/authenticated.json
      */
     public function authenticated(): UserResource
     {

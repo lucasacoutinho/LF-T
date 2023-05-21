@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use App\Models\User;
 use App\ValueObject\JwtToken;
 
 class AuthService
@@ -37,8 +36,13 @@ class AuthService
         auth()->logout();
     }
 
-    public function authenticated(): User
+    public function authenticated(): object
     {
         return auth()->user();
+    }
+
+    public function authenticatedId(): int
+    {
+        return auth()->id();
     }
 }
