@@ -15,4 +15,5 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+/.scribe
 _ide_helper.php
