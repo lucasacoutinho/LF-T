@@ -1,62 +1,48 @@
-[
-    {
-        "id": 1,
-        "description": "Fugit assumenda soluta voluptates repellat itaque.",
-        "completed": true,
-        "user_id": 1
+{
+    "data": [
+        {
+            "id": 362,
+            "description": "Accusantium beatae maxime iusto illum.",
+            "completed": true,
+            "user_id": 517
+        },
+        {
+            "id": 363,
+            "description": "Facilis omnis nesciunt eaque consequuntur accusantium alias.",
+            "completed": true,
+            "user_id": 517
+        }
+    ],
+    "links": {
+        "first": "http://localhost/api/tasks?page=1",
+        "last": "http://localhost/api/tasks?page=1",
+        "prev": null,
+        "next": null
     },
-    {
-        "id": 2,
-        "description": "Amet voluptatum et distinctio praesentium ea qui voluptas.",
-        "completed": true,
-        "user_id": 1
-    },
-    {
-        "id": 3,
-        "description": "Aut qui doloribus velit accusantium fugit qui aliquid.",
-        "completed": true,
-        "user_id": 1
-    },
-    {
-        "id": 4,
-        "description": "Sunt et omnis est magni eos omnis quia.",
-        "completed": true,
-        "user_id": 1
-    },
-    {
-        "id": 5,
-        "description": "Qui laudantium quia sed dolorem dolor itaque libero.",
-        "completed": false,
-        "user_id": 1
-    },
-    {
-        "id": 6,
-        "description": "Voluptatem temporibus a delectus vel.",
-        "completed": true,
-        "user_id": 1
-    },
-    {
-        "id": 7,
-        "description": "Sit eius quaerat dolores eos necessitatibus error.",
-        "completed": false,
-        "user_id": 1
-    },
-    {
-        "id": 8,
-        "description": "Quo porro dolor ad aut.",
-        "completed": false,
-        "user_id": 1
-    },
-    {
-        "id": 9,
-        "description": "Voluptate ea minima at id expedita aliquid commodi.",
-        "completed": true,
-        "user_id": 1
-    },
-    {
-        "id": 10,
-        "description": "Sunt nulla tenetur placeat eos ratione eaque similique.",
-        "completed": true,
-        "user_id": 1
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "last_page": 1,
+        "links": [
+            {
+                "url": null,
+                "label": "&laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http://localhost/api/tasks?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "Next &raquo;",
+                "active": false
+            }
+        ],
+        "path": "http://localhost/api/tasks",
+        "per_page": 15,
+        "to": 10,
+        "total": 10
     }
-]
+}

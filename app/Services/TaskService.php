@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Repository\TaskRepositoryInterface;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Cache;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
@@ -17,7 +17,7 @@ class TaskService
     ) {
     }
 
-    public function all(): Collection
+    public function all(): LengthAwarePaginator
     {
         return $this->taskRepository->getByUser($this->authService->authenticatedId());
     }
@@ -32,7 +32,7 @@ class TaskService
     {
         $data = array_merge($data, ['user_id' => $this->authService->authenticatedId()]);
         $task = $this->taskRepository->create($data);
-        return Cache::remember(self::CACHE_KEY . $task->getKey(), now()->addHour() ,fn () => $task);
+        return Cache::remember(self::CACHE_KEY . $task->getKey(), now()->addHour(), fn () => $task);
     }
 
     public function update(int $id, array $data): bool

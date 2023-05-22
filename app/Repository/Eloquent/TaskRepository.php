@@ -4,7 +4,7 @@ namespace App\Repository\Eloquent;
 
 use App\Models\Task;
 use App\Repository\TaskRepositoryInterface;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class TaskRepository extends BaseRepository implements TaskRepositoryInterface
 {
@@ -19,10 +19,10 @@ class TaskRepository extends BaseRepository implements TaskRepositoryInterface
      * Get all models by user ID.
      *
      * @param int $id
-     * @return Collection
+     * @return LengthAwarePaginator
      */
-    public function getByUser(int $id): Collection
+    public function getByUser(int $id): LengthAwarePaginator
     {
-        return $this->model->where('user_id', $id)->get();
+        return $this->model->where('user_id', $id)->paginate();
     }
 }

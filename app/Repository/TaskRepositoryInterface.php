@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 interface TaskRepositoryInterface extends EloquentRepositoryInterface
 {
@@ -10,7 +10,7 @@ interface TaskRepositoryInterface extends EloquentRepositoryInterface
      * Get all models by user ID.
      *
      * @param int $id
-     * @return Collection
+     * @return LengthAwarePaginator
      */
-    public function getByUser(int $id): Collection;
+    public function getByUser(int $id): LengthAwarePaginator;
 }
