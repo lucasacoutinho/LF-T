@@ -58,5 +58,5 @@ docker exec -it liberfly-api ash
 
 2. Executar o comando de testes
 ```
-php artisan test --env=testing
+php artisan test
 ```
