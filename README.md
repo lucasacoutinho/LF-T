@@ -1,4 +1,6 @@
-### LiberFly API
+### LF-T API
+
+Essa é uma API que permite ao usuário realizar operações basicas de CRUD em tarefas, como criar uma tarefa, marcar a tarefa como concluida, atualizar a descrição da tarefa ou excluir uma tarefa.
 
 # Requerimentos
 * Docker
