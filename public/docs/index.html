@@ -8,8 +8,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ asset("/vendor/scribe/css/theme-default.style.css") }}" media="screen">
-    <link rel="stylesheet" href="{{ asset("/vendor/scribe/css/theme-default.print.css") }}" media="print">
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
 
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
 
@@ -30,9 +30,9 @@
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
-    <script src="{{ asset("/vendor/scribe/js/tryitout-4.19.1.js") }}"></script>
+    <script src="../docs/js/tryitout-4.19.1.js"></script>
 
-    <script src="{{ asset("/vendor/scribe/js/theme-default-4.19.1.js") }}"></script>
+    <script src="../docs/js/theme-default-4.19.1.js"></script>
 
 </head>
 
@@ -41,7 +41,7 @@
 <a href="#" id="nav-button">
     <span>
         MENU
-        <img src="{{ asset("/vendor/scribe/images/navbar.png") }}" alt="navbar-image"/>
+        <img src="../docs/images/navbar.png" alt="navbar-image"/>
     </span>
 </a>
 <div class="tocify-wrapper">
@@ -107,16 +107,26 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-user" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="user">
+                    <a href="#user">User</a>
+                </li>
+                                    <ul id="tocify-subheader-user" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="user-POSTapi-register">
+                                <a href="#user-POSTapi-register">New User</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
             </div>
 
     <ul class="toc-footer" id="toc-footer">
-                    <li style="padding-bottom: 5px;"><a href="{{ route("scribe.postman") }}">View Postman collection</a></li>
-                            <li style="padding-bottom: 5px;"><a href="{{ route("scribe.openapi") }}">View OpenAPI spec</a></li>
+                    <li style="padding-bottom: 5px;"><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li style="padding-bottom: 5px;"><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
                 <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: May 21, 2023</li>
+        <li>Last updated: May 22, 2023</li>
     </ul>
 </div>
 
@@ -767,68 +777,54 @@ fetch(url, {
         </blockquote>
                 <pre>
 
-<code class="language-json" style="max-height: 300px;">[
-    {
-        &quot;id&quot;: 1,
-        &quot;description&quot;: &quot;Fugit assumenda soluta voluptates repellat itaque.&quot;,
-        &quot;completed&quot;: true,
-        &quot;user_id&quot;: 1
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 362,
+            &quot;description&quot;: &quot;Accusantium beatae maxime iusto illum.&quot;,
+            &quot;completed&quot;: true,
+            &quot;user_id&quot;: 517
+        },
+        {
+            &quot;id&quot;: 363,
+            &quot;description&quot;: &quot;Facilis omnis nesciunt eaque consequuntur accusantium alias.&quot;,
+            &quot;completed&quot;: true,
+            &quot;user_id&quot;: 517
+        }
+    ],
+    &quot;links&quot;: {
+        &quot;first&quot;: &quot;http://localhost/api/tasks?page=1&quot;,
+        &quot;last&quot;: &quot;http://localhost/api/tasks?page=1&quot;,
+        &quot;prev&quot;: null,
+        &quot;next&quot;: null
     },
-    {
-        &quot;id&quot;: 2,
-        &quot;description&quot;: &quot;Amet voluptatum et distinctio praesentium ea qui voluptas.&quot;,
-        &quot;completed&quot;: true,
-        &quot;user_id&quot;: 1
-    },
-    {
-        &quot;id&quot;: 3,
-        &quot;description&quot;: &quot;Aut qui doloribus velit accusantium fugit qui aliquid.&quot;,
-        &quot;completed&quot;: true,
-        &quot;user_id&quot;: 1
-    },
-    {
-        &quot;id&quot;: 4,
-        &quot;description&quot;: &quot;Sunt et omnis est magni eos omnis quia.&quot;,
-        &quot;completed&quot;: true,
-        &quot;user_id&quot;: 1
-    },
-    {
-        &quot;id&quot;: 5,
-        &quot;description&quot;: &quot;Qui laudantium quia sed dolorem dolor itaque libero.&quot;,
-        &quot;completed&quot;: false,
-        &quot;user_id&quot;: 1
-    },
-    {
-        &quot;id&quot;: 6,
-        &quot;description&quot;: &quot;Voluptatem temporibus a delectus vel.&quot;,
-        &quot;completed&quot;: true,
-        &quot;user_id&quot;: 1
-    },
-    {
-        &quot;id&quot;: 7,
-        &quot;description&quot;: &quot;Sit eius quaerat dolores eos necessitatibus error.&quot;,
-        &quot;completed&quot;: false,
-        &quot;user_id&quot;: 1
-    },
-    {
-        &quot;id&quot;: 8,
-        &quot;description&quot;: &quot;Quo porro dolor ad aut.&quot;,
-        &quot;completed&quot;: false,
-        &quot;user_id&quot;: 1
-    },
-    {
-        &quot;id&quot;: 9,
-        &quot;description&quot;: &quot;Voluptate ea minima at id expedita aliquid commodi.&quot;,
-        &quot;completed&quot;: true,
-        &quot;user_id&quot;: 1
-    },
-    {
-        &quot;id&quot;: 10,
-        &quot;description&quot;: &quot;Sunt nulla tenetur placeat eos ratione eaque similique.&quot;,
-        &quot;completed&quot;: true,
-        &quot;user_id&quot;: 1
+    &quot;meta&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;from&quot;: 1,
+        &quot;last_page&quot;: 1,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/tasks?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;active&quot;: false
+            }
+        ],
+        &quot;path&quot;: &quot;http://localhost/api/tasks&quot;,
+        &quot;per_page&quot;: 15,
+        &quot;to&quot;: 10,
+        &quot;total&quot;: 10
     }
-]</code>
+}</code>
  </pre>
     </span>
 <span id="execution-results-GETapi-tasks" hidden>
@@ -932,7 +928,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"description\": \"Reprehenderit magni eveniet nesciunt nulla iusto aut.\"
+    \"description\": \"Alias magni eum libero dolorem.\"
 }"
 </code></pre></div>
 
@@ -949,7 +945,7 @@ const headers = {
 };
 
 let body = {
-    "description": "Reprehenderit magni eveniet nesciunt nulla iusto aut."
+    "description": "Alias magni eum libero dolorem."
 };
 
 fetch(url, {
@@ -1075,10 +1071,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="description"                data-endpoint="POSTapi-tasks"
-               value="Reprehenderit magni eveniet nesciunt nulla iusto aut."
+               value="Alias magni eum libero dolorem."
                data-component="body">
     <br>
-<p>A descrição da tarefa. Example: <code>Reprehenderit magni eveniet nesciunt nulla iusto aut.</code></p>
+<p>A descrição da tarefa. Example: <code>Alias magni eum libero dolorem.</code></p>
         </div>
         </form>
 
@@ -1096,7 +1092,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/tasks/suscipit" \
+    --get "http://localhost/api/tasks/exercitationem" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1104,7 +1100,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/tasks/suscipit"
+    "http://localhost/api/tasks/exercitationem"
 );
 
 const headers = {
@@ -1230,10 +1226,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="id"                data-endpoint="GETapi-tasks--id-"
-               value="suscipit"
+               value="exercitationem"
                data-component="url">
     <br>
-<p>The ID of the task. Example: <code>suscipit</code></p>
+<p>The ID of the task. Example: <code>exercitationem</code></p>
             </div>
                     </form>
 
@@ -1251,12 +1247,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/tasks/eius" \
+    "http://localhost/api/tasks/laudantium" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"description\": \"Vero voluptate ad distinctio qui vel.\",
+    \"description\": \"A quaerat ducimus voluptas sunt dolore explicabo numquam dolorem.\",
     \"completed\": false
 }"
 </code></pre></div>
@@ -1264,7 +1260,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/tasks/eius"
+    "http://localhost/api/tasks/laudantium"
 );
 
 const headers = {
@@ -1274,7 +1270,7 @@ const headers = {
 };
 
 let body = {
-    "description": "Vero voluptate ad distinctio qui vel.",
+    "description": "A quaerat ducimus voluptas sunt dolore explicabo numquam dolorem.",
     "completed": false
 };
 
@@ -1415,10 +1411,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="id"                data-endpoint="PUTapi-tasks--id-"
-               value="eius"
+               value="laudantium"
                data-component="url">
     <br>
-<p>The ID of the task. Example: <code>eius</code></p>
+<p>The ID of the task. Example: <code>laudantium</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -1427,10 +1423,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="description"                data-endpoint="PUTapi-tasks--id-"
-               value="Vero voluptate ad distinctio qui vel."
+               value="A quaerat ducimus voluptas sunt dolore explicabo numquam dolorem."
                data-component="body">
     <br>
-<p>A descrição da tarefa. Example: <code>Vero voluptate ad distinctio qui vel.</code></p>
+<p>A descrição da tarefa. Example: <code>A quaerat ducimus voluptas sunt dolore explicabo numquam dolorem.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>completed</code></b>&nbsp;&nbsp;
@@ -1469,7 +1465,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/tasks/atque" \
+    "http://localhost/api/tasks/cumque" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1477,7 +1473,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/tasks/atque"
+    "http://localhost/api/tasks/cumque"
 );
 
 const headers = {
@@ -1597,12 +1593,220 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="id"                data-endpoint="DELETEapi-tasks--id-"
-               value="atque"
+               value="cumque"
                data-component="url">
     <br>
-<p>The ID of the task. Example: <code>atque</code></p>
+<p>The ID of the task. Example: <code>cumque</code></p>
             </div>
                     </form>
+
+                <h1 id="user">User</h1>
+
+    
+
+                                <h2 id="user-POSTapi-register">New User</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>This endpoint create a new user.</p>
+
+<span id="example-requests-POSTapi-register">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/register" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"stcmkllcwklupifiyatu\",
+    \"email\": \"muller.wilhelmine@example.net\",
+    \"password\": \"&gt;v9h~Y,I&gt;a.C_Gj&amp;J\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/register"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "stcmkllcwklupifiyatu",
+    "email": "muller.wilhelmine@example.net",
+    "password": "&gt;v9h~Y,I&gt;a.C_Gj&amp;J"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-register">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;id&quot;: 1,
+    &quot;email&quot;: &quot;liberfly-test@auth.com&quot;,
+    &quot;name&quot;: &quot;Liberfly&quot;,
+    &quot;email_verified_at&quot;: &quot;2023-05-21T11:34:28.000000Z&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;errors&quot;: {
+        &quot;name&quot;: [
+            &quot;The name field is required.&quot;,
+            &quot;The name field must be a string.&quot;
+        ],
+        &quot;email&quot;: [
+            &quot;The email field is required.&quot;,
+            &quot;The email field must be a string.&quot;,
+            &quot;The email field must be a valid email address.&quot;
+        ],
+        &quot;password&quot;: [
+            &quot;The password field is required.&quot;,
+            &quot;The password field must be a string.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-register" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-register"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-register"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-register" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-register">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-register" data-method="POST"
+      data-path="api/register"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-register', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-register"
+                    onclick="tryItOut('POSTapi-register');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-register"
+                    onclick="cancelTryOut('POSTapi-register');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-register"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/register</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Authorization" class="auth-value"               data-endpoint="POSTapi-register"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-register"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-register"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="name"                data-endpoint="POSTapi-register"
+               value="stcmkllcwklupifiyatu"
+               data-component="body">
+    <br>
+<p>O nome do usuário. Must not be greater than 255 characters. Example: <code>stcmkllcwklupifiyatu</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="email"                data-endpoint="POSTapi-register"
+               value="muller.wilhelmine@example.net"
+               data-component="body">
+    <br>
+<p>O email do usuário. Must be a valid email address. Example: <code>muller.wilhelmine@example.net</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="password"                data-endpoint="POSTapi-register"
+               value=">v9h~Y,I>a.C_Gj&J"
+               data-component="body">
+    <br>
+<p>A senha do usuário. Must be at least 8 characters. Example: <code>&gt;v9h~Y,I&gt;a.C_Gj&amp;J</code></p>
+        </div>
+        </form>
 
             
 

@@ -42,12 +42,12 @@ password: password
 # Documentação
 1. Acesse a documentação em
 ```
-http://localhost/docs
+http://localhost/swagger
 ```
 
 2. Acesse o YAML da OPENAPI em
 ```
-http://localhost/docs.openapi
+http://localhost/docs/openapi.yaml
 ```
 
 ## Testes

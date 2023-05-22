@@ -1,0 +1,738 @@
+openapi: 3.0.3
+info:
+  title: LiberflyAPI
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/login:
+    post:
+      summary: Login
+      operationId: login
+      description: 'This endpoint lets you authenticate.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  access_token: ya29.Gl0BB
+                  token_type: Bearer
+                  expires_in: 3600
+                properties:
+                  access_token:
+                    type: string
+                    example: ya29.Gl0BB
+                  token_type:
+                    type: string
+                    example: Bearer
+                  expires_in:
+                    type: integer
+                    example: 3600
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: Unauthorized
+                properties:
+                  error:
+                    type: string
+                    example: Unauthorized
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors:
+                    email:
+                      - 'The email field is required.'
+                      - 'The email field must be a string.'
+                      - 'The email field must be a valid email address.'
+                    password:
+                      - 'The password field is required.'
+                      - 'The password field must be a string.'
+                properties:
+                  errors:
+                    type: object
+                    properties:
+                      email:
+                        type: array
+                        example:
+                          - 'The email field is required.'
+                          - 'The email field must be a string.'
+                          - 'The email field must be a valid email address.'
+                        items:
+                          type: string
+                      password:
+                        type: array
+                        example:
+                          - 'The password field is required.'
+                          - 'The password field must be a string.'
+                        items:
+                          type: string
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'O e-mail do usuário. Must be a valid email address.'
+                  example: usuario@email.com
+                password:
+                  type: string
+                  description: 'A senha do usuário.'
+                  example: '12345678'
+              required:
+                - email
+                - password
+      security: []
+  /api/authenticated:
+    post:
+      summary: Authenticated
+      operationId: authenticated
+      description: 'Return a authenticated user.'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  email: liberfly-test@auth.com
+                  name: Liberfly
+                  email_verified_at: '2023-05-21T11:34:28.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  email:
+                    type: string
+                    example: liberfly-test@auth.com
+                  name:
+                    type: string
+                    example: Liberfly
+                  email_verified_at:
+                    type: string
+                    example: '2023-05-21T11:34:28.000000Z'
+      tags:
+        - Authentication
+  /api/logout:
+    post:
+      summary: Logout
+      operationId: logout
+      description: 'This endpoint lets you logout.'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Successfully logged out'
+                properties:
+                  message:
+                    type: string
+                    example: 'Successfully logged out'
+      tags:
+        - Authentication
+  /api/refresh:
+    post:
+      summary: 'Refresh token'
+      operationId: refreshToken
+      description: 'Return a refresh token.'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  access_token: ya29.Gl0BB
+                  token_type: Bearer
+                  expires_in: 3600
+                properties:
+                  access_token:
+                    type: string
+                    example: ya29.Gl0BB
+                  token_type:
+                    type: string
+                    example: Bearer
+                  expires_in:
+                    type: integer
+                    example: 3600
+      tags:
+        - Authentication
+  /api/tasks:
+    get:
+      summary: Tasks
+      operationId: tasks
+      description: 'This endpoint return the user tasks.'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 362
+                      description: 'Accusantium beatae maxime iusto illum.'
+                      completed: true
+                      user_id: 517
+                    -
+                      id: 363
+                      description: 'Facilis omnis nesciunt eaque consequuntur accusantium alias.'
+                      completed: true
+                      user_id: 517
+                  links:
+                    first: 'http://localhost/api/tasks?page=1'
+                    last: 'http://localhost/api/tasks?page=1'
+                    prev: null
+                    next: null
+                  meta:
+                    current_page: 1
+                    from: 1
+                    last_page: 1
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost/api/tasks?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    path: 'http://localhost/api/tasks'
+                    per_page: 15
+                    to: 10
+                    total: 10
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 362
+                        description: 'Accusantium beatae maxime iusto illum.'
+                        completed: true
+                        user_id: 517
+                      -
+                        id: 363
+                        description: 'Facilis omnis nesciunt eaque consequuntur accusantium alias.'
+                        completed: true
+                        user_id: 517
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 362
+                        description:
+                          type: string
+                          example: 'Accusantium beatae maxime iusto illum.'
+                        completed:
+                          type: boolean
+                          example: true
+                        user_id:
+                          type: integer
+                          example: 517
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'http://localhost/api/tasks?page=1'
+                      last:
+                        type: string
+                        example: 'http://localhost/api/tasks?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 1
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost/api/tasks?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'http://localhost/api/tasks'
+                      per_page:
+                        type: integer
+                        example: 15
+                      to:
+                        type: integer
+                        example: 10
+                      total:
+                        type: integer
+                        example: 10
+      tags:
+        - 'Task management'
+    post:
+      summary: 'New Task'
+      operationId: newTask
+      description: 'This endpoint create a new task.'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 10
+                  description: 'Sunt nulla tenetur placeat eos ratione eaque similique.'
+                  completed: true
+                  user_id: 1
+                properties:
+                  id:
+                    type: integer
+                    example: 10
+                  description:
+                    type: string
+                    example: 'Sunt nulla tenetur placeat eos ratione eaque similique.'
+                  completed:
+                    type: boolean
+                    example: true
+                  user_id:
+                    type: integer
+                    example: 1
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors:
+                    description:
+                      - 'The description field is required.'
+                      - 'The description field must be a string.'
+                properties:
+                  errors:
+                    type: object
+                    properties:
+                      description:
+                        type: array
+                        example:
+                          - 'The description field is required.'
+                          - 'The description field must be a string.'
+                        items:
+                          type: string
+      tags:
+        - 'Task management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  description: 'A descrição da tarefa.'
+                  example: 'Alias magni eum libero dolorem.'
+              required:
+                - description
+  '/api/tasks/{id}':
+    get:
+      summary: 'Find Task'
+      operationId: findTask
+      description: 'This endpoint return a task.'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 10
+                  description: 'Sunt nulla tenetur placeat eos ratione eaque similique.'
+                  completed: true
+                  user_id: 1
+                properties:
+                  id:
+                    type: integer
+                    example: 10
+                  description:
+                    type: string
+                    example: 'Sunt nulla tenetur placeat eos ratione eaque similique.'
+                  completed:
+                    type: boolean
+                    example: true
+                  user_id:
+                    type: integer
+                    example: 1
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You are not authorized to access this resource.'
+                properties:
+                  message:
+                    type: string
+                    example: 'You are not authorized to access this resource.'
+      tags:
+        - 'Task management'
+    put:
+      summary: 'Update a Task'
+      operationId: updateATask
+      description: 'This endpoint update a task.'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Task updated.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Task updated.'
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You are not authorized to access this resource.'
+                properties:
+                  message:
+                    type: string
+                    example: 'You are not authorized to access this resource.'
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors:
+                    description:
+                      - 'The description field must have a value.'
+                      - 'The description field must be a string.'
+                    completed:
+                      - 'The completed field must have a value.'
+                      - 'The completed field must be true or false.'
+                properties:
+                  errors:
+                    type: object
+                    properties:
+                      description:
+                        type: array
+                        example:
+                          - 'The description field must have a value.'
+                          - 'The description field must be a string.'
+                        items:
+                          type: string
+                      completed:
+                        type: array
+                        example:
+                          - 'The completed field must have a value.'
+                          - 'The completed field must be true or false.'
+                        items:
+                          type: string
+      tags:
+        - 'Task management'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  description: 'A descrição da tarefa.'
+                  example: 'A quaerat ducimus voluptas sunt dolore explicabo numquam dolorem.'
+                completed:
+                  type: boolean
+                  description: 'O status da tarefa.'
+                  example: false
+    delete:
+      summary: 'Delete a Task'
+      operationId: deleteATask
+      description: 'This endpoint delete a task.'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        204:
+          description: ''
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You are not authorized to access this resource.'
+                properties:
+                  message:
+                    type: string
+                    example: 'You are not authorized to access this resource.'
+      tags:
+        - 'Task management'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the task.'
+        example: exercitationem
+        required: true
+        schema:
+          type: string
+  /api/register:
+    post:
+      summary: 'New User'
+      operationId: newUser
+      description: 'This endpoint create a new user.'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  email: liberfly-test@auth.com
+                  name: Liberfly
+                  email_verified_at: '2023-05-21T11:34:28.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  email:
+                    type: string
+                    example: liberfly-test@auth.com
+                  name:
+                    type: string
+                    example: Liberfly
+                  email_verified_at:
+                    type: string
+                    example: '2023-05-21T11:34:28.000000Z'
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors:
+                    name:
+                      - 'The name field is required.'
+                      - 'The name field must be a string.'
+                    email:
+                      - 'The email field is required.'
+                      - 'The email field must be a string.'
+                      - 'The email field must be a valid email address.'
+                    password:
+                      - 'The password field is required.'
+                      - 'The password field must be a string.'
+                properties:
+                  errors:
+                    type: object
+                    properties:
+                      name:
+                        type: array
+                        example:
+                          - 'The name field is required.'
+                          - 'The name field must be a string.'
+                        items:
+                          type: string
+                      email:
+                        type: array
+                        example:
+                          - 'The email field is required.'
+                          - 'The email field must be a string.'
+                          - 'The email field must be a valid email address.'
+                        items:
+                          type: string
+                      password:
+                        type: array
+                        example:
+                          - 'The password field is required.'
+                          - 'The password field must be a string.'
+                        items:
+                          type: string
+      tags:
+        - User
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'O nome do usuário. Must not be greater than 255 characters.'
+                  example: stcmkllcwklupifiyatu
+                email:
+                  type: string
+                  description: 'O email do usuário. Must be a valid email address.'
+                  example: muller.wilhelmine@example.net
+                password:
+                  type: string
+                  description: 'A senha do usuário. Must be at least 8 characters.'
+                  example: '>v9h~Y,I>a.C_Gj&J'
+              required:
+                - name
+                - email
+                - password
+tags:
+  -
+    name: Authentication
+    description: ''
+  -
+    name: 'Task management'
+    description: ''
+  -
+    name: User
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: ''
+security:
+  -
+    default: []
