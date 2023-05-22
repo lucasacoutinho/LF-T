@@ -9,7 +9,7 @@ use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 class TaskService
 {
-    private const CACHE_KEY = 'task_';
+    public const CACHE_KEY = 'task_';
 
     public function __construct(
         private AuthService $authService,

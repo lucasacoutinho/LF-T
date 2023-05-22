@@ -4,11 +4,29 @@ namespace Tests\Feature\Task;
 
 use App\Models\Task;
 use App\Models\User;
+use Illuminate\Support\Facades\Route;
 use Tests\TestCase;
 
-class UpdateTest extends TestCase
+class UpdateTaskTest extends TestCase
 {
     private const ROUTE = 'tasks.update';
+
+    public function test_route_exists(): void
+    {
+        $this->assertTrue(Route::has(self::ROUTE));
+    }
+
+    public function test_it_expect_user_to_be_authenticated(): void
+    {
+        $response = $this
+            ->putJson(route(self::ROUTE, 0));
+
+        $response
+            ->assertUnauthorized()
+            ->assertJson([
+                'message' => 'Unauthenticated.',
+            ]);
+    }
 
     public function test_task_not_found(): void
     {

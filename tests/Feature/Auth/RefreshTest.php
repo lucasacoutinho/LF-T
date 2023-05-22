@@ -3,6 +3,7 @@
 namespace Tests\Feature\Auth;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Route;
 use Tests\TestCase;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
@@ -10,14 +11,20 @@ class RefreshTest extends TestCase
 {
     private const ROUTE = 'auth.refresh';
 
-    public function test_it_cant_logout_unauthenticated_request(): void
+    public function test_route_exists(): void
     {
-        $response = $this->postJson(route(self::ROUTE));
+        $this->assertTrue(Route::has(self::ROUTE));
+    }
+
+    public function test_it_expect_user_to_be_authenticated(): void
+    {
+        $response = $this
+            ->postJson(route(self::ROUTE));
 
         $response
             ->assertUnauthorized()
             ->assertJson([
-                'message' => 'Unauthenticated.'
+                'message' => 'Unauthenticated.',
             ]);
     }
 
@@ -26,7 +33,9 @@ class RefreshTest extends TestCase
         $auth = User::factory()->create();
         $token = JWTAuth::fromUser($auth);
 
-        $response = $this->withToken($token)->postJson(route(self::ROUTE));
+        $response = $this
+            ->withToken($token)
+            ->postJson(route(self::ROUTE));
 
         $response
             ->assertOk()

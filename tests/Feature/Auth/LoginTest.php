@@ -3,11 +3,17 @@
 namespace Tests\Feature\Auth;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Route;
 use Tests\TestCase;
 
 class LoginTest extends TestCase
 {
     private const ROUTE = 'auth.login';
+
+    public function test_route_exists(): void
+    {
+        $this->assertTrue(Route::has(self::ROUTE));
+    }
 
     public function test_required_fields(): void
     {

@@ -3,11 +3,17 @@
 namespace Tests\Feature\User;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Route;
 use Tests\TestCase;
 
-class StoreTest extends TestCase
+class CreateUserTest extends TestCase
 {
     private const ROUTE = 'user.store';
+
+    public function test_route_exists(): void
+    {
+        $this->assertTrue(Route::has(self::ROUTE));
+    }
 
     public function test_required_fields(): void
     {
